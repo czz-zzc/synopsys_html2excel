@@ -1,0 +1,857 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Register Details</title><link rel="stylesheet" type="text/css" href="html.css"><meta name="generator" content="DocBook XSL Stylesheets V1.79.1"><link rel="home" href="#idp24970440" title="Register Details"><link rel="next" href="#DWC_xgmac_map_DWCXG_DMA-details" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article"><div class="titlepage"><div><div><h2 class="title"><a name="idp24970440"></a>Register Details</h2></div></div><hr></div><div class="book"><div class="titlepage"><hr></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="H3-sect1-reg-DWC_xgmac_map_DWCXG_DMA"></a>DWCXG_DMA Register Details</h2></div></div></div><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode"></a><span class="bold"><strong>
+DMA_Mode
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>The Bus Mode register establishes the bus operating modes for the DMA.
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3000
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_Mode"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col><col><col><col><col><col><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_31_14">31:14</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_13_12">13:12</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_11_9">11:9</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_8">8</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_7_6">7:6</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_5">5</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_4">4</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_3_1">3:1</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_0">0</a></td></tr><tr><td>Reserved_31_14</td><td>INTM</td><td>Reserved_11_9</td><td>DSPW</td><td>Reserved_7_6</td><td>TMRP</td><td>TDRP</td><td>Reserved_3_1</td><td>SWR</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_Mode"></a><p class="title"><b>Table 1. Fields for Register: DMA_Mode</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_Mode" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_31_14"></a>31:14</p></td><td>Reserved_31_14</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_13_12"></a>13:12</p></td><td>INTM</td><td>R/W</td><td>
+              <p>Interrupt Mode.
+</p><p class="BLANK"></p><p>This field controls the behavior of the interrupt signal (sbd_intr_o, sbd_perch_tx_intr_o, sbd_perch_rx_intr_o) outputs for packet transfer completion events in TxDMA and RxDMA.
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+00: sbd_perch_* are pulse signals for each completion events. sbd_intr_o is also asserted and cleared only when software clears the corresponding RI/TI status bits.
+</li><li class="listitem">
+01: sbd_perch_* are level signals asserted on the corresponding event and de-asserted when the software clears the corresponding RI/TI status bits. The sbd_intr_o is not asserted for these packet transfer completion events.
+</li><li class="listitem">
+10: sbd_perch_* are level signals asserted on the corresponding event and de-asserted when the software clears the corresponding RI/TI status bits. However, the signal is asserted again if the same event occurred again before it was cleared. The sbd_intr_o is not asserted for these packet transfer completion events.
+</li><li class="listitem">
+11: Reserved 
+</li></ul></div><p>
+For more details see Table, "DWC_xgmac Transfer Complete Interrupt Behavior"</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_11_9"></a>11:9</p></td><td>Reserved_11_9</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_8"></a>8</p></td><td>DSPW</td><td>R/W</td><td>
+              <p>Descriptor Posted Write.
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0: By default, all Rx DMA descriptor writes are non-posted and any Rx interrupt generation mechanism can be used, that is, Descriptor IOC, Watchdog timer, Byte Counter based or any combination of these. 
+</li><li class="listitem">
+1: All Rx DMA data and descriptor writes are posted and Descriptor IOC based Rx interrupt generation does not function properly and must not be used. Only Watchdog timer, Byte Counter based or any combination of these Rx interrupt generation mechanisms must be used. The Tx/Rx DMA Descriptor IOC based Tx/Rx interrupt generation mechanism does not function properly and must not be used.
+</li></ul></div>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_7_6"></a>7:6</p></td><td>Reserved_7_6</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_5"></a>5</p></td><td>TMRP</td><td>R/W</td><td>
+              <p>
+Reserved</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_4"></a>4</p></td><td>TDRP</td><td>R/W</td><td>
+              <p>Tx Descriptor Read Priority.
+</p><p class="BLANK"></p><p>This bit controls the arbitration priority of descriptor fetches from the local cache when simultaneous requests are generated from RxDMA and TxDMA channels. 
+</p><p class="BLANK"></p><p>By default, when this bit is 0, the RxDMA requests get higher priority. 
+</p><p class="BLANK"></p><p>When this bit is set to 1, TxDMA descriptor fetches are serviced first by the arbiter before the RxDMA requests.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_3_1"></a>3:1</p></td><td>Reserved_3_1</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Mode_F_0"></a>0</p></td><td>SWR</td><td>R/W</td><td>
+              <p>Software Reset.
+</p><p class="BLANK"></p><p>When this bit is set, the MAC and the DMA controller reset the logic and all internal registers of the DMA, MTL, and MAC. This bit is automatically cleared after the reset operation is complete in all active clock domains. Before reprogramming any DWC_xgmac register, read a value of 0 from this bit.
+</p><p class="BLANK"></p><p><span class="bold"><strong>Note: </strong></span> The reset operation is complete only when all resets in all active clock domains are de-asserted. Therefore, it is essential that all PHY inputs clocks (applicable for the selected PHY interface) are present for software reset completion. The time to complete the software reset operation depends on the frequency of the slowest active clock.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Testable: </strong></span>untestable</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode"></a><span class="bold"><strong>
+DMA_SysBus_Mode
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>The System Bus mode register controls the behavior of the AXI master. It mainly controls burst splitting and number of outstanding requests.
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3004
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_31_27">31:27</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_26_24">26:24</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_23_19">23:19</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_18_16">18:16</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_15">15</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_14">14</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_13">13</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_12">12</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_11">11</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_10">10</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_9_8">9:8</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_7">7</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_6">6</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_5">5</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_4">4</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_3">3</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_2">2</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_1">1</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_0">0</a></td></tr><tr><td>Reserved_31_y</td><td>WR_OSR_LMT</td><td>Reserved_23_22</td><td>RD_OSR_LMT</td><td>EN_LPI</td><td>LPI_XIT_PKT</td><td>ONEKBBE</td><td>AAL</td><td>Rsvd</td><td>AALE</td><td>Reserved_9_8</td><td>BLEN256</td><td>BLEN128</td><td>BLEN64</td><td>BLEN32</td><td>BLEN16</td><td>BLEN8</td><td>BLEN4</td><td>UBL</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode"></a><p class="title"><b>Table 2. Fields for Register: DMA_SysBus_Mode</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_SysBus_Mode" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_31_27"></a>31:27</p></td><td>Reserved_31_y</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_26_24"></a>26:24</p></td><td>WR_OSR_LMT</td><td>R/W</td><td>
+              <p>AXI Maximum Write Outstanding Request Limit.
+</p><p class="BLANK"></p><p>This value limits the maximum outstanding request on the AXI write interface. Maximum outstanding requests = WR_OSR_LMT + 1
+</p><p class="BLANK"></p><p><span class="bold"><strong>Note:</strong></span>
+ 
+  
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+Bit 29 is reserved and RO 
+   
+</li><li class="listitem">
+Bit 28 is reserved and RO 
+  
+</li><li class="listitem">
+Bit 27 is reserved and RO 
+</li></ul></div>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x1</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_23_19"></a>23:19</p></td><td>Reserved_23_22</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_18_16"></a>18:16</p></td><td>RD_OSR_LMT</td><td>R/W</td><td>
+              <p>AXI Maximum Read Outstanding Request Limit.
+</p><p class="BLANK"></p><p>This value limits the maximum outstanding request on the AXI read interface. Maximum outstanding requests = RD_OSR_LMT + 1
+</p><p class="BLANK"></p><p><span class="bold"><strong>Note:</strong></span>
+  
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+Bit 21 is reserved and RO 
+   
+</li><li class="listitem">
+Bit 20 is reserved and RO 
+  
+</li><li class="listitem">
+Bit 19 is reserved and RO 
+</li></ul></div>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x1</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_15"></a>15</p></td><td>EN_LPI</td><td>R/W</td><td>
+              <p>Enable Low Power Interface (LPI).
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+1: Enables the LPI mode supported by the AXI interface and accepts the LPI request from the AXI System Clock controller.
+</li><li class="listitem">
+0: Disables the LPI mode and always denies the LPI request from the AXI System Clock controller.
+</li></ul></div>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_14"></a>14</p></td><td>LPI_XIT_PKT</td><td>R/W</td><td>
+              <p>Unlock on Magic Packet or Remote Wake-Up Packet.
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+1: Enables the AXI master to come out of the LPI mode only when the magic packet or remote wake-up packet is received. 
+</li><li class="listitem">
+0: Enables the AXI master to come out of the LPI mode when any packet is received.
+</li></ul></div>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_13"></a>13</p></td><td>ONEKBBE</td><td>R/W</td><td>
+              <p>1 KB Boundary Crossing Enable for the AXI Master.
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+1: The burst transfers performed by the AXI master do not cross 1 KB boundary. 
+</li><li class="listitem">
+0: The burst transfers performed by the AXI master do not cross 4 KB boundary.
+</li></ul></div>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_12"></a>12</p></td><td>AAL</td><td>R/W</td><td>
+              <p>Address-Aligned Beats.
+</p><p class="BLANK"></p><p>When this bit is set to 1, the AXI master performs address-aligned burst transfers on Read and Write channels.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_11"></a>11</p></td><td> </td><td> </td><td><span class="bold"><strong>Reserved Field: </strong></span>Yes</td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_10"></a>10</p></td><td>AALE</td><td>R/W</td><td>
+              <p>Automatic AXI LPI enable.
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+1: Enables the AXI master to enter into LPI state when there is no activity in DWC_xgmac for the number of system clock cycles programmed in the LPIEI field of AXI_LPI_Entry_Interval register.
+</li></ul></div>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_9_8"></a>9:8</p></td><td>Reserved_9_8</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_7"></a>7</p></td><td>BLEN256</td><td>R/W</td><td>
+              <p>AXI Burst Length 256.
+</p><p class="BLANK"></p><p>When this bit is set to 1, the AXI master can select a burst length of 256 on the AXI interface.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_6"></a>6</p></td><td>BLEN128</td><td>R/W</td><td>
+              <p>AXI Burst Length 128.
+</p><p class="BLANK"></p><p>When this bit is set to 1, the AXI master can select a burst length of 128 on the AXI interface.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_5"></a>5</p></td><td>BLEN64</td><td>R/W</td><td>
+              <p>AXI Burst Length 64.
+</p><p class="BLANK"></p><p>When this bit is set to 1, the AXI master can select a burst length of 64 on the AXI interface.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_4"></a>4</p></td><td>BLEN32</td><td>R/W</td><td>
+              <p>AXI Burst Length 32.
+</p><p class="BLANK"></p><p>When this bit is set to 1, the AXI master can select a burst length of 32 on the AXI interface.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_3"></a>3</p></td><td>BLEN16</td><td>R/W</td><td>
+              <p>AXI Burst Length 16.
+</p><p class="BLANK"></p><p>When this bit and the UBL bit is set to 0, the AXI master can select a burst length of 16 on the AXI interface. 
+</p><p class="BLANK"></p><p>When UBL is set to 1, this bit has no effect as the AXI master can always select a burst length up to 16 on the AXI interface.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_2"></a>2</p></td><td>BLEN8</td><td>R/W</td><td>
+              <p>AXI Burst Length 8.
+</p><p class="BLANK"></p><p>When this bit and the UBL bit is set to 0, the AXI master can select a burst length of 8 on the AXI interface.
+</p><p class="BLANK"></p><p>When the UBL bit is set to 1, setting this bit has no effect.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_1"></a>1</p></td><td>BLEN4</td><td>R/W</td><td>
+              <p>AXI Burst Length 4.
+</p><p class="BLANK"></p><p>When this bit and the UBL bit is set to 0, the AXI master can select a burst length of 4 on the AXI interface.
+</p><p class="BLANK"></p><p>When the UBL bit is set to 1, setting this bit has no effect.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_SysBus_Mode_F_0"></a>0</p></td><td>UBL</td><td>R/W</td><td>
+              <p>AXI Undefined Burst Length.
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+1: The AXI master can perform burst transfers that are equal to or less than the maximum allowed burst length programmed in Bits[7:4].
+</li><li class="listitem">
+0: The AXI master performs one of the following burst transfers:
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+Burst transfers of fixed burst lengths as indicated by the BLEN256, BLEN128, BLEN64, BLEN32, BLEN16, BLEN8, or BLEN4 field
+</li><li class="listitem">
+Burst transfers of length 1
+</li></ul></div></li></ul></div><p>
+When this bit is set and no BLEN bit is set, the AXI master performs bursts transfers of any length upto 16.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status"></a><span class="bold"><strong>
+DMA_Interrupt_Status
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>The application reads this Interrupt Status register during interrupt service routine or polling to determine the interrupt status of DMA channels, MTL queues, and the MAC.
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3008
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col><col><col><col><col><col><col><col><col><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_31_18">31:18</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_17">17</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_16">16</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_15_8">15:8</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_7">7</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_6">6</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_5">5</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_4">4</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_3">3</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_2">2</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_1">1</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_0">0</a></td></tr><tr><td>Reserved_31_18</td><td>MACIS</td><td>MTLIS</td><td>DC15TC8IS</td><td>DC7IS</td><td>DC6IS</td><td>DC5IS</td><td>DC4IS</td><td>DC3IS</td><td>DC2IS</td><td>DC1IS</td><td>DC0IS</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status"></a><p class="title"><b>Table 3. Fields for Register: DMA_Interrupt_Status</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_Interrupt_Status" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_31_18"></a>31:18</p></td><td>Reserved_31_18</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_17"></a>17</p></td><td>MACIS</td><td>R</td><td>
+              <p>MAC Interrupt Status.
+</p><p class="BLANK"></p><p>This bit indicates an interrupt event in the MAC. To reset this bit to 1'b0, the software must read the corresponding register in the MAC to get the exact cause of the interrupt and clear its source.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_16"></a>16</p></td><td>MTLIS</td><td>R</td><td>
+              <p>MTL Interrupt Status.
+</p><p class="BLANK"></p><p>This bit indicates an interrupt event in the MTL. To reset this bit to 1'b0, the software must read the corresponding register in the MTL to get the exact cause of the interrupt and clear its source.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_15_8"></a>15:8</p></td><td>DC15TC8IS</td><td>R</td><td>
+              <p>DMA Channel 15 Interrupt Status to DMA Channel 8 Interrupt Status.
+</p><p class="BLANK"></p><p>To reset a bit to 1'b0, the software must read the Channel Status register in the corresponding DMA Channel (15 to 8) to get the exact cause of the interrupt and clear its source.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_7"></a>7</p></td><td>DC7IS</td><td>R</td><td>
+              <p>DMA Channel 7 Interrupt Status.
+</p><p class="BLANK"></p><p>This bit indicates an interrupt event in DMA Channel 7. To reset this bit to 1'b0, the software must read the corresponding register in DMA Channel 7 to get the exact cause of the interrupt and clear its source.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_6"></a>6</p></td><td>DC6IS</td><td>R</td><td>
+              <p>DMA Channel 6 Interrupt Status.
+</p><p class="BLANK"></p><p>This bit indicates an interrupt event in DMA Channel 6. To reset this bit to 1'b0, the software must read the corresponding register in DMA Channel 6 to get the exact cause of the interrupt and clear its source.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_5"></a>5</p></td><td>DC5IS</td><td>R</td><td>
+              <p>DMA Channel 5 Interrupt Status.
+</p><p class="BLANK"></p><p>This bit indicates an interrupt event in DMA Channel 5. To reset this bit to 1'b0, the software must read the corresponding register in DMA Channel 5 to get the exact cause of the interrupt and clear its source.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_4"></a>4</p></td><td>DC4IS</td><td>R</td><td>
+              <p>DMA Channel 4 Interrupt Status.
+</p><p class="BLANK"></p><p>This bit indicates an interrupt event in DMA Channel 4. To reset this bit to 1'b0, the software must read the corresponding register in DMA Channel 4 to get the exact cause of the interrupt and clear its source.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_3"></a>3</p></td><td>DC3IS</td><td>R</td><td>
+              <p>DMA Channel 3 Interrupt Status.
+</p><p class="BLANK"></p><p>This bit indicates an interrupt event in DMA Channel 3. To reset this bit to 1'b0, the software must read the corresponding register in DMA Channel 3 to get the exact cause of the interrupt and clear its source.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_2"></a>2</p></td><td>DC2IS</td><td>R</td><td>
+              <p>DMA Channel 2 Interrupt Status.
+</p><p class="BLANK"></p><p>This bit indicates an interrupt event in DMA Channel 2. To reset this bit to 1'b0, the software must read the corresponding register in DMA Channel 2 to get the exact cause of the interrupt and clear its source.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_1"></a>1</p></td><td>DC1IS</td><td>R</td><td>
+              <p>DMA Channel 1 Interrupt Status.
+</p><p class="BLANK"></p><p>This bit indicates an interrupt event in DMA Channel 1. To reset this bit to 1'b0, the software must read the corresponding register in DMA Channel 1 to get the exact cause of the interrupt and clear its source.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Interrupt_Status_F_0"></a>0</p></td><td>DC0IS</td><td>R</td><td>
+              <p>DMA Channel 0 Interrupt Status.
+</p><p class="BLANK"></p><p>This bit indicates an interrupt event in DMA Channel 0. To reset this bit to 1'b0, the software must read the corresponding register in DMA Channel 0 to get the exact cause of the interrupt and clear its source.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control"></a><span class="bold"><strong>
+AXI_Tx_AR_ACE_Control
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>This register is used to control the AXI4 Cache Coherency Signals for read transactions by all the Transmit DMA channels. The following signals of the AXI4 interface are driven with different values as programmed for corresponding type (descriptor, buffer1, buffer2) of access.
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+AXI Master read control channel's cache type 
+</li><li class="listitem">
+AXI Master read control channel's Domain indicator signal 
+</li></ul></div></li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3010
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col><col><col><col><col><col><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_31_22">31:22</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_21_20">21:20</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_19_16">19:16</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_15_14">15:14</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_13_12">13:12</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_11_8">11:8</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_7_6">7:6</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_5_4">5:4</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_3_0">3:0</a></td></tr><tr><td>Reserved_31_22</td><td>THD</td><td>THC</td><td>Reserved_15_14</td><td>TED</td><td>TEC</td><td>Reserved_7_6</td><td>TDRD</td><td>TDRC</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control"></a><p class="title"><b>Table 4. Fields for Register: AXI_Tx_AR_ACE_Control</b></p><div class="table-contents"><table class="table" summary="Fields for Register: AXI_Tx_AR_ACE_Control" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_31_22"></a>31:22</p></td><td>Reserved_31_22</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_21_20"></a>21:20</p></td><td>THD</td><td>R/W</td><td>
+              <p>  TSO Header Domain Control.
+</p><p class="BLANK"></p><p> 
+</p><p class="BLANK"></p><p> This field is used to drive ardomain_o[1:0] signal when the Transmit DMA is accessing the TSO Header data.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_19_16"></a>19:16</p></td><td>THC</td><td>R/W</td><td>
+              <p>  TSO Header Cache Control.
+</p><p class="BLANK"></p><p> 
+</p><p class="BLANK"></p><p> This field is used to drive arcache_o[3:0] signal when the Transmit DMA is accessing the TSO Header data.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_15_14"></a>15:14</p></td><td>Reserved_15_14</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_13_12"></a>13:12</p></td><td>TED</td><td>R/W</td><td>
+              <p> TSO Payload Domain Control.
+</p><p class="BLANK"></p><p> .
+</p><p class="BLANK"></p><p> This field is used to drive ardomain_o[1:0] signal when the Transmit DMA is accessing the TSO payload data.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_11_8"></a>11:8</p></td><td>TEC</td><td>R/W</td><td>
+              <p>   TSO Payload Cache Control.
+</p><p class="BLANK"></p><p> 
+</p><p class="BLANK"></p><p> This field is used to drive arcache_o[3:0] signal when the Transmit DMA is accessing the TSO payload data.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_7_6"></a>7:6</p></td><td>Reserved_7_6</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_5_4"></a>5:4</p></td><td>TDRD</td><td>R/W</td><td>
+              <p>Transmit DMA Read Descriptor Domain Control.
+</p><p class="BLANK"></p><p>This field is used to drive ardomain_o[1:0] signal when Transmit DMA engines access the Descriptor.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Tx_AR_ACE_Control_F_3_0"></a>3:0</p></td><td>TDRC</td><td>R/W</td><td>
+              <p>Transmit DMA Read Descriptor Cache Control.
+</p><p class="BLANK"></p><p>This field is used to drive arcache_o[3:0] signal when Transmit DMA engines access the Descriptor.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control"></a><span class="bold"><strong>
+AXI_Rx_AW_ACE_Control
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>This register is used to control the Cache Coherency Signals of the AXI4-ACE Lite on the Receive DMA. The programmable controllability is supported on the following signals of the AXI Write channel.
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+AXI Master write control channel's cache type 
+</li><li class="listitem">
+AXI Master write control channel's Domain indicator signal 
+</li></ul></div></li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3018
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col><col><col><col><col><col><col><col><col><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_31_30">31:30</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_29_28">29:28</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_27_24">27:24</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_23_22">23:22</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_21_20">21:20</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_19_16">19:16</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_15_14">15:14</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_13_12">13:12</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_11_8">11:8</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_7_6">7:6</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_5_4">5:4</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_3_0">3:0</a></td></tr><tr><td>Reserved_31_30</td><td>RDD</td><td>RDC</td><td>Reserved_23_22</td><td>RHD</td><td>RHC</td><td>Reserved_15_14</td><td>RPD</td><td>RPC</td><td>Reserved_7_6</td><td>RDWD</td><td>RDWC</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control"></a><p class="title"><b>Table 5. Fields for Register: AXI_Rx_AW_ACE_Control</b></p><div class="table-contents"><table class="table" summary="Fields for Register: AXI_Rx_AW_ACE_Control" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_31_30"></a>31:30</p></td><td>Reserved_31_30</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_29_28"></a>29:28</p></td><td>RDD</td><td>R/W</td><td>
+              <p>Receive DMA Buffer Domain Control.
+</p><p class="BLANK"></p><p>This field is used to drive the awdomain_o[1:0] signal when Receive DMA is accessing the Buffer when Header and payload are not separated.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_27_24"></a>27:24</p></td><td>RDC</td><td>R/W</td><td>
+              <p>Receive DMA Buffer Cache Control.
+</p><p class="BLANK"></p><p>This field is used to drive awcache_o[3:0] signal when Receive DMA is accessing the Buffer when Header and payload are not separated.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_23_22"></a>23:22</p></td><td>Reserved_23_22</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_21_20"></a>21:20</p></td><td>RHD</td><td>R/W</td><td>
+              <p>Receive DMA Header Domain Control.
+</p><p class="BLANK"></p><p>This field is used to drive awdomain_o[1:0] and signal when Receive DMA is accessing the header Buffer when Header and payload are separated.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_19_16"></a>19:16</p></td><td>RHC</td><td>R/W</td><td>
+              <p>Receive DMA Header Cache Control.
+</p><p class="BLANK"></p><p>This field is used to drive awcache_o[3:0] and signal when Receive DMA is accessing the header Buffer when Header and payload are separated.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_15_14"></a>15:14</p></td><td>Reserved_15_14</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_13_12"></a>13:12</p></td><td>RPD</td><td>R/W</td><td>
+              <p>Receive DMA Payload Domain Control.
+</p><p class="BLANK"></p><p>This field is used to drive awdomain_o[1:0] signal when Receive DMA is accessing the Payload Buffer when Header and payload are separated.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_11_8"></a>11:8</p></td><td>RPC</td><td>R/W</td><td>
+              <p>Receive DMA Payload Cache Control.
+</p><p class="BLANK"></p><p>This field is used to drive awcache_o[3:0] signal when Receive DMA is accessing the Payload Buffer when Header and payload are separated.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_7_6"></a>7:6</p></td><td>Reserved_7_6</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_5_4"></a>5:4</p></td><td>RDWD</td><td>R/W</td><td>
+              <p>Receive DMA Write Descriptor Domain Control.
+</p><p class="BLANK"></p><p>This field is used to drive awdomain_o[1:0] signal when Receive DMA access the Descriptor.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_Rx_AW_ACE_Control_F_3_0"></a>3:0</p></td><td>RDWC</td><td>R/W</td><td>
+              <p>Receive DMA Write Descriptor Cache Control.
+</p><p class="BLANK"></p><p>This field is used to drive awcache_o[3:0] signal when Receive DMA access the Descriptor.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control"></a><span class="bold"><strong>
+AXI_TxRx_AWAR_ACE_Control
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>This register is used to control the AXI4 Cache Coherency Signals for Descriptor write transactions by all the TxDMA channels and Descriptor read transactions by all the RxDMA channels. It also controls the values to be driven on AXI Master write control channel's protection control signal and AXI Master read control channel's protection control signal .
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x301c
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col><col><col><col><col><col><col><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_31_23">31:23</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_22_20">22:20</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_19">19</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_18_16">18:16</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_15_14">15:14</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_13_12">13:12</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_11_8">11:8</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_7_6">7:6</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_5_4">5:4</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_3_0">3:0</a></td></tr><tr><td>Reserved_31_23</td><td>WRP</td><td>Reserved_19</td><td>RDP</td><td>Reserved_15_14</td><td>RDRD</td><td>RDRC</td><td>Reserved_7_6</td><td>TDWD</td><td>TDWC</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control"></a><p class="title"><b>Table 6. Fields for Register: AXI_TxRx_AWAR_ACE_Control</b></p><div class="table-contents"><table class="table" summary="Fields for Register: AXI_TxRx_AWAR_ACE_Control" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_31_23"></a>31:23</p></td><td>Reserved_31_23</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_22_20"></a>22:20</p></td><td>WRP</td><td>R/W</td><td>
+              <p>DMA Write Protection control.
+</p><p class="BLANK"></p><p>This field is used to drive the AXI Master write control channel's protection control signal  during all write Requests.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_19"></a>19</p></td><td>Reserved_19</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_18_16"></a>18:16</p></td><td>RDP</td><td>R/W</td><td>
+              <p>DMA Read Protection control.
+</p><p class="BLANK"></p><p>This field is used to drive the AXI Master read control channel's protection control signal  during all read requests.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_15_14"></a>15:14</p></td><td>Reserved_15_14</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_13_12"></a>13:12</p></td><td>RDRD</td><td>R/W</td><td>
+              <p>Receive DMA Read Descriptor Domain control.
+</p><p class="BLANK"></p><p>This field is used to drive ardomain_o[1:0] signal when Receive DMA engine is reading the Descriptor.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_11_8"></a>11:8</p></td><td>RDRC</td><td>R/W</td><td>
+              <p>Receive DMA Read Descriptor Cache control.
+</p><p class="BLANK"></p><p>This field is used to drive arcache_o[3:0] signal when Receive DMA engine is reading the Descriptor.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_7_6"></a>7:6</p></td><td>Reserved_7_6</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_5_4"></a>5:4</p></td><td>TDWD</td><td>R/W</td><td>
+              <p>Transmit DMA Write Descriptor Domain control.
+</p><p class="BLANK"></p><p>This field is used to drive awdomain_o[1:0] signal when Transmit DMA is writing the Descriptor.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_TxRx_AWAR_ACE_Control_F_3_0"></a>3:0</p></td><td>TDWC</td><td>R/W</td><td>
+              <p>Transmit DMA Write Descriptor Cache control.
+</p><p class="BLANK"></p><p>This field is used to drive awcache_o[3:0] signal when Transmit DMA is writing the Descriptor.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status0"></a><span class="bold"><strong>
+DMA_Debug_Status0
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>The Debug Status 0 register gives the Receive and Transmit process status for DMA Channel 0 - Channel 2 for debugging purpose.
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3020
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status0"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status0_F_31_2">31:2</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status0_F_1">1</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status0_F_0">0</a></td></tr><tr><td>Reserved_31_2</td><td>AXRHSTS</td><td>AXWHSTS</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status0"></a><p class="title"><b>Table 7. Fields for Register: DMA_Debug_Status0</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_Debug_Status0" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status0_F_31_2"></a>31:2</p></td><td>Reserved_31_2</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status0_F_1"></a>1</p></td><td>AXRHSTS</td><td>R</td><td>
+              <p>AXI Master Read Channel Status.
+</p><p class="BLANK"></p><p>When high, this bit indicates that the read channel of the AXI master is active, and it is transferring the data.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status0_F_0"></a>0</p></td><td>AXWHSTS</td><td>R</td><td>
+              <p>AXI Master Write Channel Status.
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+1: Indicates that the write channel of the AXI master is active, and it is transferring data.
+</li></ul></div>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status1"></a><span class="bold"><strong>
+DMA_Debug_Status1
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>The Debug Status1 register gives the per Transmit DMA active status.
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3024
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status1"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status1_F_31_2">31:2</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status1_F_1_0">1:0</a></td></tr><tr><td>Reserved_31_y</td><td>TDAS</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status1"></a><p class="title"><b>Table 8. Fields for Register: DMA_Debug_Status1</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_Debug_Status1" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status1_F_31_2"></a>31:2</p></td><td>Reserved_31_y</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status1_F_1_0"></a>1:0</p></td><td>TDAS</td><td>R</td><td>
+              <p>Transmit DMA Active Status.
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+1: The corresponding Transmit DMA FSMs are not idle, that is, the FSMs are actively processing the descriptors or packet data.
+</li><li class="listitem">
+0: The corresponding Transmit DMA FSMs are in idle state.
+</li></ul></div>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status3"></a><span class="bold"><strong>
+DMA_Debug_Status3
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>The Debug Status3 register gives the per Receive DMA active status.
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x302c
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status3"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status3_F_31_1">31:1</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status3_F_0">0</a></td></tr><tr><td>Reserved_31_y</td><td>RDAS</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status3"></a><p class="title"><b>Table 9. Fields for Register: DMA_Debug_Status3</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_Debug_Status3" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status3_F_31_1"></a>31:1</p></td><td>Reserved_31_y</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Debug_Status3_F_0"></a>0</p></td><td>RDAS</td><td>R</td><td>
+              <p>Receive DMA Active Status.
+When the bit is set to 1, the corresponding Receive DMA FSMs are not idle, that is, actively processing the descriptors or packet data.
+When the bit is set to 0, the corresponding Receive DMA FSMs are in idle state.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Tx_EDMA_Control"></a><span class="bold"><strong>
+DMA_Tx_EDMA_Control
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>The DMA_Tx_EDMA_Control register controls the sequence of all TxDMA operations with the DMA engine.
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3040
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_Tx_EDMA_Control"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Tx_EDMA_Control_F_31_30">31:30</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Tx_EDMA_Control_F_29_2">29:2</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Tx_EDMA_Control_F_1_0">1:0</a></td></tr><tr><td>TEDM</td><td>Reserved_29_y</td><td>TDPS</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_Tx_EDMA_Control"></a><p class="title"><b>Table 10. Fields for Register: DMA_Tx_EDMA_Control</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_Tx_EDMA_Control" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Tx_EDMA_Control_F_31_30"></a>31:30</p></td><td>TEDM</td><td>R/W</td><td>
+              <p>Tx DMA Mode.
+</p><p class="BLANK"></p><p>This field controls the sequence of descriptor and data transfers in the DMA engine for all TxDMA channels is as follows: 
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+2'b00: Default mode of DMA, in which all transfers are independently triggered and can occur in parallel. This gives you the best performance. Use the other modes only for debug purposes. 
+</li><li class="listitem">
+2'b01: The value of TDPS field is ignored and only one Descriptor is fetched at a time from the System Memory. The next descriptor is fetched only after the current descriptor is accepted by Data Transfer Engine. The Data transfer, Descriptor close and the next descriptor fetch can still occur in parallel.
+</li><li class="listitem">
+2'b10: The value of TDPS field is ignored and only one Descriptor is fetched at a time from the System Memory. The next descriptor is fetched only after the data transfer corresponding to current descriptor is completed. The Descriptor close and the next descriptor fetch can still happen in parallel.
+</li><li class="listitem">
+2'b11: All operations are sequential. Descriptor is fetched, data transfer is completed, descriptor is closed and then only the next descriptor is fetched. The value of TDPS is ignored in this mode.
+</li></ul></div>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Tx_EDMA_Control_F_29_2"></a>29:2</p></td><td>Reserved_29_y</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Tx_EDMA_Control_F_1_0"></a>1:0</p></td><td>TDPS</td><td>R/W</td><td>
+              <p>Tx Descriptor Pre-fetch threshold Size.
+</p><p class="BLANK"></p><p>This field controls the threshold in the Descriptor cache after which the DMA starts pre-fetching the TxDMA descriptors. The DMA engine for all TxDMA channels initiate requests for the descriptor fetches as soon as the number of descriptors in the cache memory for that DMA channel, falls below or equal to the programmed threshold (each descriptor is 16 bytes).
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+3'b000: Threshold of 0 descriptors. Descriptor pre-fetch is triggered only when cache is empty.
+</li><li class="listitem">
+3'b001: Threshold is 4 descriptors. Descriptor pre-fetch is triggered when 4 descriptors are left in the cache.
+</li><li class="listitem">
+3'b010: Threshold is 8 descriptors. Descriptor pre-fetch is triggered when 8 descriptors are left in the cache.
+</li><li class="listitem">
+3'b011: Threshold is 12 descriptors. Descriptor pre-fetch is triggered when 12 descriptors are left in the cache.
+</li><li class="listitem">
+3'b100: Threshold is 16 descriptors. Descriptor pre-fetch is triggered when 16 descriptors are left in the cache.
+</li><li class="listitem">
+3'b101: Threshold is 24 descriptors. Descriptor pre-fetch is triggered when 24 descriptors are left in the cache.
+</li><li class="listitem">
+3'b110 - 3'b111: Reserved.
+</li></ul></div><p>
+<span class="bold"><strong>Note: </strong></span> Bit 2 is reserved and RO, that is TDPS value of 100 and 101 is not valid.
+ 
+ </p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Rx_EDMA_Control"></a><span class="bold"><strong>
+DMA_Rx_EDMA_Control
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>The DMA_Rx_EDMA_Control register controls the sequence of all RxDMA operations with the DMA engine.
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3044
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_Rx_EDMA_Control"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Rx_EDMA_Control_F_31_30">31:30</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Rx_EDMA_Control_F_29_2">29:2</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Rx_EDMA_Control_F_1_0">1:0</a></td></tr><tr><td>REDM</td><td>Reserved_29_y</td><td>RDPS</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_Rx_EDMA_Control"></a><p class="title"><b>Table 11. Fields for Register: DMA_Rx_EDMA_Control</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_Rx_EDMA_Control" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Rx_EDMA_Control_F_31_30"></a>31:30</p></td><td>REDM</td><td>R/W</td><td>
+              <p>Rx DMA Mode.
+</p><p class="BLANK"></p><p>This field controls the sequence of descriptor and data transfers in the DMA engine for all RxDMA channels: 
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+2'b00: Default mode of DMA as explained in section 2.4.8 in which all transfers are independently triggered and can occur in parallel. This gives you the best performance. Use the other modes only for debug purposes.
+</li><li class="listitem">
+2'b01: The value of RDPS field is ignored and only 1 Descriptor is fetched at a time from the System Memory. The next descriptor is fetched only after the current descriptor is accepted by Data Transfer Engine. The Data transfer, Descriptor close and the next descriptor fetch can still happen in parallel.
+</li><li class="listitem">
+2'b10: The value of RDPS field is ignored and only 1 Descriptor is fetched at a time from the System Memory. The next descriptor is fetched only after the data transfer corresponding to current descriptor is completed. The Descriptor close and the next descriptor fetch can still happen in parallel.
+</li><li class="listitem">
+2'b11: All operations are sequential. Descriptor is fetched, data transfer is completed, descriptor is closed; then the next descriptor is fetched. The value of RDPS is ignored in this mode.
+</li></ul></div>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Rx_EDMA_Control_F_29_2"></a>29:2</p></td><td>Reserved_29_y</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Rx_EDMA_Control_F_1_0"></a>1:0</p></td><td>RDPS</td><td>R/W</td><td>
+              <p>Rx Descriptor Pre-Fetch Threshold Size.
+</p><p class="BLANK"></p><p>This field controls the threshold in the Descriptor cache after which the DMA starts pre-fetching the RxDMA descriptors. The DMA engine for all RxDMA channels initiate requests for the descriptor fetches as soon as the number of descriptors in the cache memory for that DMA channel, falls lower than or equal to the programmed threshold (each descriptor is 16 bytes).
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+3'b000: Threshold of 0 descriptors. Descriptor pre-fetch is triggered only when cache is empty.
+</li><li class="listitem">
+3'b001: Threshold is 4 descriptors. Descriptor pre-fetch is triggered when 4 descriptors are left in the cache.
+</li><li class="listitem">
+3'b010: Threshold is 8 descriptors. Descriptor pre-fetch is triggered when 8 descriptors are left in the cache.
+</li><li class="listitem">
+3'b011: Threshold is 12 descriptors. Descriptor pre-fetch is triggered when 12 descriptors are left in the cache.
+</li><li class="listitem">
+3'b100: Threshold is 16 descriptors. Descriptor pre-fetch is triggered when 16 descriptors are left in the cache.
+</li><li class="listitem">
+3'b101: Threshold is 24 descriptors. Descriptor pre-fetch is triggered when 24 descriptors are left in the cache.
+</li><li class="listitem">
+3'b110-3'b111: Reserved.
+</li></ul></div><p>
+<span class="bold"><strong>Note: </strong></span> Bit 2 is reserved and RO , that is RDPS value of 100 and 101 is not valid.
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_LPI_Entry_Interval"></a><span class="bold"><strong>
+AXI_LPI_Entry_Interval
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>This register is used to control the AXI LPI entry interval.
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3050
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_AXI_LPI_Entry_Interval"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_LPI_Entry_Interval_F_31_4">31:4</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_LPI_Entry_Interval_F_3_0">3:0</a></td></tr><tr><td>Reserved_31_4</td><td>LPIEI</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_AXI_LPI_Entry_Interval"></a><p class="title"><b>Table 12. Fields for Register: AXI_LPI_Entry_Interval</b></p><div class="table-contents"><table class="table" summary="Fields for Register: AXI_LPI_Entry_Interval" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_LPI_Entry_Interval_F_31_4"></a>31:4</p></td><td>Reserved_31_4</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_AXI_LPI_Entry_Interval_F_3_0"></a>3:0</p></td><td>LPIEI</td><td>R/W</td><td>
+              <p>LPI Entry Interval
+</p><p class="BLANK"></p><p>This field contains the number of system clock cycles, multiplied by 256, to wait for an activity in DWC_xgmac to enter into the AXI low-power state, 0 indicates 256 clock cycles.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status"></a><span class="bold"><strong>
+DMA_Safety_Interrupt_Status
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>This register indicates summary (whether error occurred in DMA/MTL/MAC and correctable/uncorrectable) of the Automotive Safety related error interrupts.
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3064
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col><col><col><col><col><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_31">31</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_30">30</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_29">29</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_28">28</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_27_6">27:6</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_5_2">5:2</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_1">1</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_0">0</a></td></tr><tr><td>MCSIS</td><td>Reserved_30</td><td>MSUIS</td><td>MSCIS</td><td>Reserved_27_6</td><td>Rsvd</td><td>DEUIS</td><td>DECIS</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status"></a><p class="title"><b>Table 13. Fields for Register: DMA_Safety_Interrupt_Status</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_Safety_Interrupt_Status" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_31"></a>31</p></td><td>MCSIS</td><td>R</td><td>
+              <p>MAC Safety Unrecoverable Interrupt Status
+</p><p class="BLANK"></p><p>Indicates an unrecoverable Safety related Interrupt is set in the MAC module. When this bit is set, to get the cause of the safety interrupt in the MAC, read the MAC_DPP_FSM_Interrupt_Status and DMA_DPP_Interrupt_Status registers.</p><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (INACTIVE): MAC Safety Uncorrectable Interrupt Status not detected
+</li><li class="listitem">
+0x1 (ACTIVE): MAC Safety Uncorrectable Interrupt Status detected
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_30"></a>30</p></td><td>Reserved_30</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_29"></a>29</p></td><td>MSUIS</td><td>R</td><td>
+              <p>MTL Safety Unrecoverable error Interrupt Status
+</p><p class="BLANK"></p><p>This bit indicates an uncorrectable error interrupt event in MTL. To get exact cause of the interrupt, the software must read the MTL_Safety_Interrupt_Status register.</p><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (INACTIVE): MTL Safety Uncorrectable error Interrupt Status not detected
+</li><li class="listitem">
+0x1 (ACTIVE): MTL Safety Uncorrectable error Interrupt Status detected
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_28"></a>28</p></td><td>MSCIS</td><td>R</td><td>
+              <p>MTL Safety Correctable error Interrupt Status
+</p><p class="BLANK"></p><p>This bit indicates a correctable error interrupt event in MTL. To get exact cause of the interrupt, the software must read the MTL_Safety_Interrupt_Status register.</p><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (INACTIVE): MTL Safety Correctable error Interrupt Status not detected
+</li><li class="listitem">
+0x1 (ACTIVE): MTL Safety Correctable error Interrupt Status detected
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_27_6"></a>27:6</p></td><td>Reserved_27_6</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_5_2"></a>5:2</p></td><td> </td><td> </td><td><span class="bold"><strong>Reserved Field: </strong></span>Yes</td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_1"></a>1</p></td><td>DEUIS</td><td>R</td><td>
+              <p>DMA ECC Uncorrectable error Interrupt Status
+</p><p class="BLANK"></p><p>This bit indicates an interrupt event in the DMA ECC safety feature. To get the exact cause of the interrupt, the application must read the DMA_ECC_Interrupt_Status register.</p><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (INACTIVE): DMA ECC Uncorrectable error Interrupt Status not detected
+</li><li class="listitem">
+0x1 (ACTIVE): DMA ECC Uncorrectable error Interrupt Status detected
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_Safety_Interrupt_Status_F_0"></a>0</p></td><td>DECIS</td><td>R</td><td>
+              <p>DMA ECC Correctable error Interrupt Status
+</p><p class="BLANK"></p><p>This bit indicates an interrupt event in the DMA ECC safety feature. To get the exact cause of the interrupt, the application must read the DMA_ECC_Interrupt_Status register.</p><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (INACTIVE): DMA ECC Correctable error Interrupt Status not detected
+</li><li class="listitem">
+0x1 (ACTIVE): DMA ECC Correctable error Interrupt Status detected
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_enable"></a><span class="bold"><strong>
+DMA_ECC_Interrupt_enable
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>This register is used to enable the Automotive Safety related TSO memory ECC error interrupt.
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3068
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_enable"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_enable_F_31_2">31:2</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_enable_F_1">1</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_enable_F_0">0</a></td></tr><tr><td>Reserved_31_2</td><td>DCEIE</td><td>Rsvd</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_enable"></a><p class="title"><b>Table 14. Fields for Register: DMA_ECC_Interrupt_enable</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_ECC_Interrupt_enable" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_enable_F_31_2"></a>31:2</p></td><td>Reserved_31_2</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_enable_F_1"></a>1</p></td><td>DCEIE</td><td>R/W</td><td>
+              <p>DCACHE memory Correctable Error Interrupt Enable
+</p><p class="BLANK"></p><p>When set, generates an interrupt when a correctable error is detected at the DMA DCACHE memory interface. It is indicated in the DCES bit of DMA_ECC_Interrupt_Status register. When reset, this event does not generate an interrupt.</p><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (DISABLE): Descriptor Cache Memory Correctable Error Interrupt is disabled
+</li><li class="listitem">
+0x1 (ENABLE): Descriptor Cache Memory Correctable Error Interrupt is enabled
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x1</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_enable_F_0"></a>0</p></td><td> </td><td> </td><td><span class="bold"><strong>Reserved Field: </strong></span>Yes</td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status"></a><span class="bold"><strong>
+DMA_ECC_Interrupt_Status
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>This register indicates the Automotive Safety related TSO memory ECC error interrupt status.
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x306c
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col><col><col><col><col><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_31_7">31:7</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_6">6</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_5">5</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_4">4</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_3">3</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_2">2</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_1">1</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_0">0</a></td></tr><tr><td>Reserved_31_7</td><td>DUES</td><td>DAMS</td><td>DCES</td><td>Reserved_3</td><td>TUES</td><td>TAMS</td><td>TCES</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status"></a><p class="title"><b>Table 15. Fields for Register: DMA_ECC_Interrupt_Status</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_ECC_Interrupt_Status" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_31_7"></a>31:7</p></td><td>Reserved_31_7</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_6"></a>6</p></td><td>DUES</td><td>R/W</td><td>
+              <p>DMA DCACHE memory Uncorrectable Error Status
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+1: Indicates that an uncorrectable error is detected at DMA DCACHE memory interface.
+</li></ul></div><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (INACTIVE): DMA DCACHE memory Uncorrectable Error status not detected
+</li><li class="listitem">
+0x1 (ACTIVE): DMA DCACHE memory Uncorrectable Error status detected
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Testable: </strong></span>untestable</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_5"></a>5</p></td><td>DAMS</td><td>R/W</td><td>
+              <p>DMA DCACHE memory Address Mismatch Status
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+1: Indicates that the address mismatch is found for address bus of DMA DCACHE memory.
+</li></ul></div><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (INACTIVE): DMA DCACHE memory Address Mismatch status not detected
+</li><li class="listitem">
+0x1 (ACTIVE): DMA DCACHE memory Address Mismatch status detected
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Testable: </strong></span>untestable</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_4"></a>4</p></td><td>DCES</td><td>R/W</td><td>
+              <p>DMA DCACHE memory Correctable Error Status
+</p><p class="BLANK"></p><p>When this bit is set, it indicates that correctable error is detected at DMA DCACHE memory interface.</p><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (INACTIVE): DMA DCACHE memory Correctable Error status not detected
+</li><li class="listitem">
+0x1 (ACTIVE): DMA DCACHE memory Correctable Error status detected
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Testable: </strong></span>untestable</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_3"></a>3</p></td><td>Reserved_3</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_2"></a>2</p></td><td>TUES</td><td>R/W</td><td>
+              <p>DMA TSO memory Uncorrectable Error Status
+</p><p class="BLANK"></p><p>When set, indicates that an uncorrectable error is detected at DMA TSO memory interface.</p><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (INACTIVE): DMA TSO memory Uncorrectable Error status not detected
+</li><li class="listitem">
+0x1 (ACTIVE): DMA TSO memory Uncorrectable Error status detected
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Testable: </strong></span>untestable</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_1"></a>1</p></td><td>TAMS</td><td>R/W</td><td>
+              <p>DMA TSO memory Address Mismatch Status
+</p><p class="BLANK"></p><p>When this bit is set, it indicates that address mismatch is found for address bus of DMA TSO memory.</p><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (INACTIVE): DMA TSO memory Address Mismatch status not detected
+</li><li class="listitem">
+0x1 (ACTIVE): DMA TSO memory Address Mismatch status detected
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Testable: </strong></span>untestable</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_ECC_Interrupt_Status_F_0"></a>0</p></td><td>TCES</td><td>R/W</td><td>
+              <p>DMA TSO memory Correctable Error Status
+</p><p class="BLANK"></p><p>When this bit is set, it indicates that correctable error is detected at DMA TSO memory interface.</p><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (INACTIVE): DMA TSO memory Correctable Error status not detected
+</li><li class="listitem">
+0x1 (ACTIVE): DMA TSO memory Correctable Error status detected
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Testable: </strong></span>untestable</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Control"></a><span class="bold"><strong>
+DMA_DPP_Control
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>The DMA_DPP_Control establishes the operating mode of Data Parity protection and error injection per channel in DMA.
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3070
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Control"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Control_F_31_17">31:17</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Control_F_16">16</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Control_F_15_2">15:2</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Control_F_1_0">1:0</a></td></tr><tr><td>Reserved_31_y</td><td>IPERD</td><td>Reserved_15_y</td><td>IPETD</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Control"></a><p class="title"><b>Table 16. Fields for Register: DMA_DPP_Control</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_DPP_Control" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Control_F_31_17"></a>31:17</p></td><td>Reserved_31_y</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Control_F_16"></a>16</p></td><td>IPERD</td><td>R/W</td><td>
+              <p>Insert Parity Error in DMA RD parity checker
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+1: Parity/data bit of the first valid input parity/data of DMA Read Rx descriptor parity checker (or at PC1#rd) is flipped.
+</li></ul></div><p>
+Based on the EIM/BLEI field of MTL_DPP_ECC_EIC register, software can corrupt any one bit of parity/data.
+</p><p class="BLANK"></p><p>DWC_xgmac clears this bit after the respective parity bit is flipped.</p><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (DISABLE): Insert Parity Error in DMA RD Parity Checker is disabled
+</li><li class="listitem">
+0x1 (ENABLE): Insert Parity Error in DMA  RD Parity Checker  is enabled
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Testable: </strong></span>untestable</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Control_F_15_2"></a>15:2</p></td><td>Reserved_15_y</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Control_F_1_0"></a>1:0</p></td><td>IPETD</td><td>R/W</td><td>
+              <p>Insert Parity Error in DMA TD parity checker
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+1: Parity/data bit of the first valid input parity/data of DMA Read Tx descriptor parity checker (or at PC1#td) is flipped. 
+</li></ul></div><p>
+Based on the EIM/BLEI field of MTL_DPP_ECC_EIC register, software can corrupt any one bit of parity/data.
+</p><p class="BLANK"></p><p>DWC_xgmac clears this bit after the respective parity bit is flipped.</p><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (DISABLE): Insert Parity Error in DMA TD Parity Checker is disabled
+</li><li class="listitem">
+0x1 (ENABLE): Insert Parity Error in DMA TD Parity Checker is enabled
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Testable: </strong></span>untestable</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Interrupt_Status"></a><span class="bold"><strong>
+DMA_DPP_Interrupt_Status
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>This register contains the status of Automotive Safety related Data Path Parity Errors per channel in DMA.
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3074
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Interrupt_Status"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Interrupt_Status_F_31_17">31:17</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Interrupt_Status_F_16">16</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Interrupt_Status_F_15_2">15:2</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Interrupt_Status_F_1_0">1:0</a></td></tr><tr><td>Reserved_31_y</td><td>RDPES</td><td>Reserved_15_y</td><td>TDPES</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Interrupt_Status"></a><p class="title"><b>Table 17. Fields for Register: DMA_DPP_Interrupt_Status</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_DPP_Interrupt_Status" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Interrupt_Status_F_31_17"></a>31:17</p></td><td>Reserved_31_y</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Interrupt_Status_F_16"></a>16</p></td><td>RDPES</td><td>R/W</td><td>
+              <p>Read Rx Descriptor Parity checker Error Status
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+1: Indicates that a parity error is detected at the DMA Read Rx descriptor per channel parity checker (or at PC2#rd) is flipped.
+</li></ul></div><p>
+It is cleared when written to 1.</p><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (INACTIVE): Read Receive Descriptor(Per Channel) Parity checker Error Status not detected
+</li><li class="listitem">
+0x1 (ACTIVE): Read Receive Descriptor(Per Channel) Parity checker Error Status detected
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Testable: </strong></span>untestable</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Interrupt_Status_F_15_2"></a>15:2</p></td><td>Reserved_15_y</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_DPP_Interrupt_Status_F_1_0"></a>1:0</p></td><td>TDPES</td><td>R/W</td><td>
+              <p>Read Tx Descriptor Parity checker Error Status
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+1: Indicates that a parity error is detected at the DMA Read Tx descriptor per channel parity checker (or at PC2#td) is flipped.
+</li></ul></div><p>
+It is cleared when written to 1.</p><p class="BLANK"></p><p><span class="bold"><strong>Values: </strong></span>
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0x0 (INACTIVE): Read Transmit Descriptor(Per Channel) Parity checker Error Status not detected
+</li><li class="listitem">
+0x1 (ACTIVE): Read Transmit Descriptor(Per Channel) Parity checker Error Status detected
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Testable: </strong></span>untestable</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl"></a><span class="bold"><strong>
+DMA_CH_Ind_Ctrl
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>This register is used to program Indirect Access DMA configuration registers
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3080
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col><col><col><col><col><col><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_31_20">31:20</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_19_16">19:16</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_15_12">15:12</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_11_8">11:8</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_7_6">7:6</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_5_4">5:4</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_3_2">3:2</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_1">1</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_0">0</a></td></tr><tr><td>Reserved_31_20</td><td>MSEL</td><td>Reserved_15_12</td><td>AOFF</td><td>Reserved_7_6</td><td>AUTO</td><td>Reserved_3_2</td><td>CT</td><td>OB</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl"></a><p class="title"><b>Table 18. Fields for Register: DMA_CH_Ind_Ctrl</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_CH_Ind_Ctrl" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_31_20"></a>31:20</p></td><td>Reserved_31_20</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_19_16"></a>19:16</p></td><td>MSEL</td><td>R/W</td><td>
+              <p>Mode Select
+</p><p class="BLANK"></p><p>This field selects a group of identical registers.
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0000: DMA_CH(#i)_TxExtCfg registers
+</li><li class="listitem">
+0001-1111: reserved for future use
+</li></ul></div><p>
+MSEL field is used in the indirect access of the DMA_(#MSEL)_(#AOFF)
+This field must be set along with initiation of read/write to the DMA_(#MSEL)_(#AOFF) register and must not be changed until the OB is reset.
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_15_12"></a>15:12</p></td><td>Reserved_15_12</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_11_8"></a>11:8</p></td><td>AOFF</td><td>R/W</td><td>
+              <p>Address Offset
+This field selects the offset address of per DMA Channel registers specified by MSEL field.
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+0000: CH0 
+</li><li class="listitem">
+0001: CH1
+</li><li class="listitem">
+----
+</li><li class="listitem">
+1111 : CH15
+</li></ul></div><p>
+AOFF field is used in the indirect access of the DMA_(#MSEL)_(#AOFF)
+This field must be set along with initiation of read/write to the DMA_(#MSEL)_(#AOFF) register and must not be changed until the OB is reset.
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_7_6"></a>7:6</p></td><td>Reserved_7_6</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_5_4"></a>5:4</p></td><td>AUTO</td><td>R/W</td><td>
+              <p>Auto Increment
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+00: No auto increment
+</li><li class="listitem">
+01: Auto increment MSEL only
+</li><li class="listitem">
+10: Auto increment AOFF only
+</li><li class="listitem">
+11: No auto increment
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_3_2"></a>3:2</p></td><td>Reserved_3_2</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_1"></a>1</p></td><td>CT</td><td>R/W</td><td>
+              <p>Command Type
+</p><p class="BLANK"></p><p>This bit indicates if the current register access is a read or a write operation. 
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+1: Indicates a read operation. 
+</li><li class="listitem">
+0: Indicates a write operation. 
+</li></ul></div><p>
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Ctrl_F_0"></a>0</p></td><td>OB</td><td>R/W</td><td>
+              <p>Operation Busy
+</p><p class="BLANK"></p><p>This bit is set along with a read or write command for initiating the indirect access to DMA_(#MSEL)_(#AOFF) register. This bit is reset when the read or write command to DMA_(#MSEL)_(#AOFF) register is complete. The next indirect register access can be initiated only after this bit is reset. During a write operation, the bit is reset only after the data has been written into the DMA_(#MSEL)_(#AOFF) register. During a read operation, the data must be read from the DMA_CH_Ind_Data register, only after this bit is reset. 
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Testable: </strong></span>untestable</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Data"></a><span class="bold"><strong>
+DMA_CH_Ind_Data
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>This register holds the read/write data for Indirect Access of the registers indicated by DMA_(#MSEL)_(#AOFF). During the read access, this field contains valid read data only after the OB bit is reset. During the write access, this field must be valid prior setting the OB bit in the DMA_CH_Ind_Data register. Once auto increment is set, application is allowed to write without setting OB bit of DMA_CH_Ind_Ctrl register.
+
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3084
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Data"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Data_F_31_7">31:7</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Data_F_6_0">6:0</a></td></tr><tr><td>Reserved_31_7</td><td>WT</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Data"></a><p class="title"><b>Table 19. Fields for Register: DMA_CH_Ind_Data</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_CH_Ind_Data" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Data_F_31_7"></a>31:7</p></td><td>Reserved_31_7</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH_Ind_Data_F_6_0"></a>6:0</p></td><td>WT</td><td>R/W</td><td>
+              <p>Weights 
+</p><p class="BLANK"></p><p>This field contains the weights of the corresponding Tx DMA used for Weighted Round Robin Arbitration of Tx DMA Data Reads. The maximum value is 0x64.
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH0_TxExtCfg"></a><span class="bold"><strong>
+DMA_CH(#i)_TxExtCfg (for i = 0; i &lt;= 1)
+    </strong></span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="bold"><strong>Description: </strong></span>This register contains data related to per channel Tx weights used for Weighted Round Robin Arbitration of Tx DMA Data Reads.
+
+      </li><li class="listitem"><span class="bold"><strong>Size: </strong></span>32 bits
+      </li><li class="listitem"><span class="bold"><strong>Offset: </strong></span>0x3084
+      </li></ul></div><div class="informaltable"><a name="fld-DWC_xgmac_map_DWCXG_DMA_DMA_CH0_TxExtCfg"></a><table class="informaltable" cellpadding="4" border="1"><colgroup><col><col></colgroup><tbody><tr bgcolor="#C0C0C0"><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH0_TxExtCfg_F_31_7">31:7</a></td><td><a class="link" href="#H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH0_TxExtCfg_F_6_0">6:0</a></td></tr><tr><td>Reserved_31_7</td><td>WT</td></tr></tbody></table></div><div class="table"><a name="fieldtable-DWC_xgmac_map_DWCXG_DMA_DMA_CH0_TxExtCfg"></a><p class="title"><b>Table 20. Fields for Register: DMA_CH(#i)_TxExtCfg (for i = 0; i &lt;= 1)</b></p><div class="table-contents"><table class="table" summary="Fields for Register: DMA_CH(#i)_TxExtCfg (for i = 0; i &lt;= 1)" cellpadding="4" width="100%" border="1"><colgroup><col><col><col><col></colgroup><thead><tr bgcolor="#C0C0C0"><th>Bits</th><th>Name</th><th>Memory Access</th><th>Description</th></tr></thead><tbody><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH0_TxExtCfg_F_31_7"></a>31:7</p></td><td>Reserved_31_7</td><td>R</td><td>
+              <p>Reserved.</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr><tr><td><p><a name="H4-reg-DWC_xgmac_map_DWCXG_DMA_DMA_CH0_TxExtCfg_F_6_0"></a>6:0</p></td><td>WT</td><td>R/W</td><td>
+              <p>Weights 
+</p><p class="BLANK"></p><p>This field contains the weights of corresponding Tx DMA used for Weighted Round Robin Arbitration of Tx DMA Data Reads. The maximum value is 0x64.
+</p>
+              <p><span class="bold"><strong>Value After Reset: </strong></span>0x0</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div></div></body></html>

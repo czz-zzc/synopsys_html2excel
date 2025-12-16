@@ -1,8 +1,7 @@
-#!#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 from bs4 import BeautifulSoup
 import re
-import pandas as pd
 import os
 import argparse
 import glob
@@ -119,7 +118,7 @@ def parse_html_file(html_file, excel_data):
                 excel_data['attribute'].append("normal")  # All are "normal" in the example
                 excel_data['description'].append("")  # Avoid None values
 
-def write_excel_with_header(df, output_file):
+def write_excel_with_header(excel_data, output_file):
     # Get module name from output file name (remove extension)
     module_name = os.path.splitext(os.path.basename(output_file))[0]
 
@@ -152,8 +151,21 @@ def write_excel_with_header(df, output_file):
     for col_idx, value in enumerate(table_header, 1):
         ws.cell(row=10, column=col_idx, value=value)
 
-    # Write DataFrame data starting from row 11
-    for r_idx, row in enumerate(df.itertuples(index=False), 11):
+    # Write data starting from row 11
+    # Transpose data from columns to rows
+    rows = zip(
+        excel_data['offset'], 
+        excel_data['reg_name'], 
+        excel_data['bits'], 
+        excel_data['field'], 
+        excel_data['sw_access'], 
+        excel_data['hw_access'], 
+        excel_data['default'], 
+        excel_data['attribute'], 
+        excel_data['description']
+    )
+
+    for r_idx, row in enumerate(rows, 11):
         for c_idx, value in enumerate(row, 1):
             ws.cell(row=r_idx, column=c_idx, value=value)
     # Auto-adjust column width
@@ -202,10 +214,8 @@ def main():
         print(f"Parsing {html_file} ...")
         parse_html_file(html_file, excel_data)
 
-    # Create DataFrame
-    df = pd.DataFrame(excel_data)
     # Write with custom header and merged cells
-    write_excel_with_header(df, args.output)
+    write_excel_with_header(excel_data, args.output)
     print(f"Excel file saved to {args.output}")
 
 if __name__ == '__main__':

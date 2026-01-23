@@ -82,61 +82,45 @@ def convert_offset_to_word_addr(offset_str, keep_byte_addr=False):
     """
     Convert byte address offset to word address offset (divide by 4)
     If keep_byte_addr is True, keep as byte address.
-    Handles expressions like "0x100", "0x100+i*0x10"
+    Handles expressions like "0x100", "0x100+i*0x10", "(0x0080*i)+0x1100"
     """
     if offset_str is None:
         return "0x0"
         
     offset_str = str(offset_str).strip()
-    
-    # Check if it's an expression
-    if '+' in offset_str:
-        # Parse expression like "0x40+i*0x8" or "0x2a0+m*0x4"
-        parts = offset_str.split('+')
-        base_part = parts[0].strip()
-        var_part = parts[1].strip()
-        
-        # Convert base part
+
+    def replace_num(match):
+        num_str = match.group(0)
         try:
-            base_byte = int(base_part, 16) if base_part.startswith('0x') else int(base_part)
-            base_val = base_byte if keep_byte_addr else base_byte // 4
-            base_res = f"0x{base_val:x}"
-        except:
-            base_res = base_part # Fallback
-            
-        # Convert variable part
-        # Expecting "i*0x8" or "m*4" or just "m" (implicit *4?)
-        
-        if '*' in var_part:
-            var_match = re.match(r'([a-zA-Z_]\w*)\*(.+)', var_part)
-            if var_match:
-                variable = var_match.group(1)
-                step_str = var_match.group(2).strip()
-                try:
-                    step_byte = int(step_str, 16) if step_str.startswith('0x') else int(step_str)
-                    step_val = step_byte if keep_byte_addr else step_byte // 4
-                    
-                    if step_val == 1 and not keep_byte_addr:
-                        var_res = variable
-                    else:
-                        var_res = f"{variable}*0x{step_val:x}"
-                except:
-                    var_res = var_part
+            # Handle hex
+            if num_str.lower().startswith('0x'):
+                val = int(num_str, 16)
+            # Handle decimal
             else:
-                var_res = var_part
-        else:
-            var_res = var_part
+                val = int(num_str, 10)
             
-        return f"{base_res}+{var_res}"
-        
-    else:
-        # Simple numeric offset
-        try:
-            byte_addr = int(offset_str, 16) if offset_str.startswith('0x') else int(offset_str)
-            val = byte_addr if keep_byte_addr else byte_addr // 4
-            return f"0x{val:x}"
+            # Apply conversion
+            new_val = val if keep_byte_addr else val // 4
+            return f"0x{new_val:x}"
         except:
-            return offset_str
+            return num_str
+
+    # Regex to capture Hex numbers OR Decimal numbers
+    # Hex: 0x[0-9a-fA-F]+
+    # Decimal: \d+ (ensure it's not part of a variable name like ch1)
+    # Using negative lookbehind/lookahead for decimal to avoid matching inside identifiers
+    # Matches 0x123 OR 123 (but not a123 or 123a)
+    pattern = r'0x[0-9a-fA-F]+|(?<![a-zA-Z_])\d+(?![a-zA-Z_])'
+    
+    new_offset = re.sub(pattern, replace_num, offset_str, flags=re.IGNORECASE)
+    
+    # Optional: cleanup *0x1 or 0x1* to simplify i*1 to i
+    if not keep_byte_addr:
+        # match *0x1 followed by end of string or operator or space (not followed by hex digit)
+        new_offset = re.sub(r'\*0x1(?![0-9a-fA-F])', '', new_offset)
+        new_offset = re.sub(r'(?<![0-9a-fA-F])0x1\*', '', new_offset)
+
+    return new_offset
 
 def parse_old_format(filename):
     """

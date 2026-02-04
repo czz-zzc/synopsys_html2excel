@@ -6,6 +6,74 @@ import os
 import argparse
 import glob
 import openpyxl
+from openpyxl.styles import Alignment
+
+def format_description(td_tag):
+    """
+    Format the description cell to preserve lists and paragraphs
+    while cleaning up whitespace.
+    """
+    lines = []
+    
+    def process_element(element):
+        if isinstance(element, str): # NavigableString
+            text = element.strip()
+            if text:
+                lines.append(text)
+            return
+
+        if element.name == 'br':
+            lines.append('\n')
+            return
+
+        if element.name in ['ul', 'ol']:
+            lines.append('\n')
+            for li in element.find_all('li'):
+                # Clean up list item text
+                li_text = ' '.join(li.get_text(separator=' ', strip=True).split())
+                lines.append(f"• {li_text}")
+                lines.append('\n')
+            lines.append('\n')
+            return
+
+        if element.name in ['p', 'div']:
+            # If the block contains a list, iterate through children to preserve structure
+            if element.find(['ul', 'ol']):
+                lines.append('\n')
+                for child in element.children:
+                    process_element(child)
+                lines.append('\n')
+            else:
+                # Regular text block
+                p_text = ' '.join(element.get_text(separator=' ', strip=True).split())
+                if p_text:
+                    lines.append(p_text)
+                    lines.append('\n\n')
+            return
+
+        # Handle other wrapper tags (span, strong, etc.)
+        text = ' '.join(element.get_text(separator=' ', strip=True).split())
+        if text:
+            lines.append(text)
+
+    # Main loop processing top-level children
+    for child in td_tag.children:
+        process_element(child)
+
+    # Join and clean up
+    # Join with space usually, but respect \n logic
+    result = ""
+    for line in lines:
+        if line == '\n' or line == '\n\n':
+            result += line
+        else:
+            if result and not result.endswith('\n') and not result.endswith(' '):
+                 result += " "
+            result += line
+            
+    # Final cleanup of excessive newlines
+    import re
+    return re.sub(r'\n{3,}', '\n\n', result).strip()
 
 def parse_html_file(html_file, excel_data):
     # Read HTML file content
@@ -72,7 +140,7 @@ def parse_html_file(html_file, excel_data):
                     'bits': cols[0].get_text(strip=True),
                     'name': cols[1].get_text(strip=True),
                     'access': cols[2].get_text(strip=True),
-                    'description': cols[3].get_text(' ', strip=True),
+                    'description': format_description(cols[3]),
                     'default': default_value
                 }
                 if not field['name'] or "reserved" in field['name'].lower():
@@ -116,7 +184,7 @@ def parse_html_file(html_file, excel_data):
 
                 excel_data['default'].append(format_default(field['bits'], field['default']))  # Avoid None values
                 excel_data['attribute'].append("normal")  # All are "normal" in the example
-                excel_data['description'].append("")  # Avoid None values
+                excel_data['description'].append(field['description'])  # Populate description
 
 def write_excel_with_header(excel_data, output_file):
     # Get module name from output file name (remove extension)
@@ -167,18 +235,54 @@ def write_excel_with_header(excel_data, output_file):
 
     for r_idx, row in enumerate(rows, 11):
         for c_idx, value in enumerate(row, 1):
-            ws.cell(row=r_idx, column=c_idx, value=value)
-    # Auto-adjust column width
+            cell = ws.cell(row=r_idx, column=c_idx, value=value)
+            if c_idx == 9: # Description column
+                cell.alignment = Alignment(wrap_text=True, vertical='top')
+            else:
+                cell.alignment = Alignment(vertical='top')
+
+    # Auto-adjust column width and row height
+    description_width = 80
+    
     for col in ws.columns:
         max_length = 0
         col_letter = openpyxl.utils.get_column_letter(col[0].column)
+        
+        if col_letter == 'I': # Description column fixed width
+            ws.column_dimensions[col_letter].width = description_width
+            continue
+
         for cell in col:
             try:
                 if cell.value:
-                    max_length = max(max_length, len(str(cell.value)))
+                    # Limit max width for other columns
+                    cell_len = len(str(cell.value))
+                    if cell_len > 50: cell_len = 50 
+                    max_length = max(max_length, cell_len)
             except:
                 pass
-        ws.column_dimensions[col_letter].width = max_length + 2  # +2 for padding
+        ws.column_dimensions[col_letter].width = max_length + 2
+
+    # Adjust row height for description
+    for row in ws.iter_rows(min_row=11):
+        max_lines = 1
+        cell = row[8] # Description is 9th column (index 8)
+        if cell.value:
+            text = str(cell.value)
+            # Estimate lines: count newlines + wrapped lines
+            lines = 0
+            for paragraph in text.split('\n'):
+                # Ceiling division for wrapping
+                para_len = len(paragraph)
+                if para_len == 0:
+                    lines += 1 # Empty line
+                else:
+                    lines += (para_len + description_width - 1) // description_width
+            max_lines = max(max_lines, lines)
+        
+        # Approximate height: 15 points per line
+        if max_lines > 1:
+            ws.row_dimensions[row[0].row].height = max_lines * 15
         
     wb.save(output_file)
 

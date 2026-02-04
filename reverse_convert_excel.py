@@ -291,11 +291,17 @@ def write_new_format(module_info, registers, var_ranges, output_file, keep_byte_
             ws_regs.cell(row=current_row, column=6, value=attr)
             
             # Description
-            ws_regs.cell(row=current_row, column=7, value=field["description"])
+            cell_desc = ws_regs.cell(row=current_row, column=7, value=field["description"])
+            cell_desc.alignment = Alignment(wrap_text=True, vertical='top')
             
             # Default Value
             def_val = convert_verilog_default_to_hex(field["default"])
-            ws_regs.cell(row=current_row, column=8, value=def_val)
+            cell_def = ws_regs.cell(row=current_row, column=8, value=def_val)
+            cell_def.alignment = Alignment(vertical='top')
+
+            # Set alignment for other cells in row
+            for col in range(1, 7):
+                ws_regs.cell(row=current_row, column=col).alignment = Alignment(vertical='top')
             
             current_row += 1
             
@@ -319,7 +325,7 @@ def write_new_format(module_info, registers, var_ranges, output_file, keep_byte_
     ws_regs.column_dimensions['D'].width = 10
     ws_regs.column_dimensions['E'].width = 20
     ws_regs.column_dimensions['F'].width = 10
-    ws_regs.column_dimensions['G'].width = 25
+    ws_regs.column_dimensions['G'].width = 80
     ws_regs.column_dimensions['H'].width = 15
     
     wb.save(output_file)
